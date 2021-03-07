@@ -39,3 +39,17 @@ class APITests(TestCase):
         json_content['manufacturer'] = json_content['manufacturer']['id']
         json_content['mount'] = json_content['mount']['id']
         self.assertDictEqual(json_content, self.lens_data[0])
+
+    def test_lens_compatibility_lookup(self):
+        # Check first camera is compatible with first lens
+        camera_id = self.camera_data[0]['id']
+        response = self.client.get(f'/cameras/{camera_id}/compatible_lenses', HTTP_ACCEPT='application/json')
+        json_content = json.loads(response.content)[0]
+        self.assertEqual(json_content['id'], self.lens_data[0]['id'])
+
+    def test_camera_compatibility_lookup(self):
+        # Check first lens is compatible with first camera
+        lens_id = self.lens_data[0]['id']
+        response = self.client.get(f'/lenses/{lens_id}/compatible_cameras', HTTP_ACCEPT='application/json')
+        json_content = json.loads(response.content)[0]
+        self.assertEqual(json_content['id'], self.camera_data[0]['id'])

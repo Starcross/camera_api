@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework import views
+from rest_framework import generics
 
 from api.models import Camera, Lens, LensMount, Manufacturer
 from api.serializers import CameraReadSerializer, CameraWriteSerializer, LensReadSerializer, LensWriteSerializer, \
@@ -38,6 +39,19 @@ class ManufacturerViewSet(viewsets.ModelViewSet):
     serializer_class = ManufacturerSerializer
 
 
-class CompatibleLenses(views.APIView):
+class CompatibleLenses(generics.ListAPIView):
     serializer_class = LensReadSerializer
+
+    def get_queryset(self):
+        camera = Camera.objects.get(pk=self.kwargs['pk'])
+        return camera.mount.lens_set.all()
+
+
+class CompatibleCameras(generics.ListAPIView):
+    serializer_class = CameraReadSerializer
+
+    def get_queryset(self):
+        lens = Lens.objects.get(pk=self.kwargs['pk'])
+        return lens.mount.camera_set.all()
+
 

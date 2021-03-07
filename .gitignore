@@ -1,3 +1,4 @@
+.idea
 /venv/
 /api/migrations/
 camera_api/settings.py

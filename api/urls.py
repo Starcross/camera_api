@@ -12,7 +12,8 @@ router.register(r'manufacturers', views.ManufacturerViewSet)
 
 # Use automatic URL routing.
 urlpatterns = [
-    path('cameras/<int:pk>/compatible_lenses', views.CompatibleLenses),
+    path('cameras/<int:pk>/compatible_lenses', views.CompatibleLenses.as_view()),
+    path('lenses/<int:pk>/compatible_cameras', views.CompatibleCameras.as_view()),
     path('', include(router.urls)),
     #path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
