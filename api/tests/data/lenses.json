@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "model": "Sony AF 24-105mm F3.5-4.5",
+        "sensor_format": "full",
+        "focus_type": "auto",
+        "focal_range": "24-105mm",
+        "max_aperture": "F3.5-4.5",
+        "aperture_blades": 7,
+        "filter_diameter": 62,
+        "release_year": 2006,
+        "weight": 432,
+        "exif_id": "24-105mm F3.5-4.5",
+        "manufacturer": 1,
+        "mount": 1
+    }
+]

@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "model": "A99",
+        "sensor_format": "full",
+        "focus_type": "auto",
+        "release_year": 2012,
+        "video": true,
+        "weight": 812,
+        "exif_id": "Sony SLT-A99V",
+        "manufacturer": 1,
+        "mount": 1
+    }
+]
